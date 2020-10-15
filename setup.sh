@@ -64,6 +64,8 @@ echo "interface $1
     static ip_address=192.168.4.1/24
     nohook wpa_supplicant" >> ./conf/dhcpcd.conf
 
+cp ./conf/dhcpcd.conf /etc/dhcpcd.conf
+
 
 sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 # Enable ipv4 forwarding
