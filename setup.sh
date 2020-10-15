@@ -84,7 +84,6 @@ address=/gw.wlan/192.168.4.1
 sudo rfkill unblock wlan
 
 # Setup hostapd configuration file
-sudo touch ./conf/hostapd.conf
 sudo echo "interface=$1
 bridge=br0
 driver=nl80211
@@ -98,7 +97,7 @@ wpa=3
 wpa_passphrase=$3
 wpa_key_mgmt=WPA-PSK
 wpa_pairwise=TKIP
-rsn_pairwise=CCMP" > ./conf/hostapd.conf
+rsn_pairwise=CCMP" > conf/hostapd.conf
 
 sudo cp ./conf/hostapd.conf /etc/hostapd/hostapd.conf
 # cp /.conf/hostapd /etc/default/hostapd
