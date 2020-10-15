@@ -100,7 +100,7 @@ wpa_key_mgmt=WPA-PSK
 wpa_pairwise=TKIP
 rsn_pairwise=CCMP" > ./conf/hostapd.conf
 
-cp ./conf/hostapd.conf /etc/hostapd/hostapd.conf
+sudo cp ./conf/hostapd.conf /etc/hostapd/hostapd.conf
 # cp /.conf/hostapd /etc/default/hostapd
 
 # sudo hostapd /etc/hostapd/hostapd.conf
