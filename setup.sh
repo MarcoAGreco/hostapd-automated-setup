@@ -83,7 +83,7 @@ address=/gw.wlan/192.168.4.1
                 # Alias for this router
 " >> conf/dnsmasq.conf
 
-sudo cp conf/dnsmasq /etc/dnsmasq.conf
+sudo cp conf/dnsmasq.conf /etc/dnsmasq.conf
 
 sudo rfkill unblock wlan
 
