@@ -84,16 +84,16 @@ address=/gw.wlan/192.168.4.1
 sudo rfkill unblock wlan
 
 # Setup hostapd configuration file
-sudo echo "interface=$1
-bridge=br0
-driver=nl80211
-ssid=$2
+sudo echo "
+country_code=IT
+interface=$2
+ssid=NameOfNetwork
 hw_mode=g
 channel=7
 macaddr_acl=0
 auth_algs=1
 ignore_broadcast_ssid=0
-wpa=3
+wpa=2
 wpa_passphrase=$3
 wpa_key_mgmt=WPA-PSK
 wpa_pairwise=TKIP
