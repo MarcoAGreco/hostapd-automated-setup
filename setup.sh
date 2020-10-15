@@ -90,8 +90,8 @@ sudo rfkill unblock wlan
 # Setup hostapd configuration file
 sudo echo "
 country_code=IT
-interface=$2
-ssid=NameOfNetwork
+interface=$1
+ssid=$2
 hw_mode=g
 channel=7
 macaddr_acl=0
