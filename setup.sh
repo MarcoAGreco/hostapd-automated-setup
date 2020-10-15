@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 if (( $# != 3 )); then
     echo "[ERROR] Illegal number of parameters."
