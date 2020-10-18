@@ -1,13 +1,13 @@
 #!/bin/bash
 
-if [[ $# != 3]] then
+if [ $# != 3 ]; then
     echo "[ERROR] Illegal number of parameters."
     echo "[-] Syntax: recon.sh [interface] [SSID] [PASSPHRASE]"
     echo '[-] Example: recon.sh wlan0 my_ssid my_passhphrase'
     exit -1
 fi
 
-if [[ $1 == '--help' ]] then
+if [[ $1 == '--help' ]]; then
     echo "[-] Syntax: recon.sh [interface] [SSID] [PASSPHRASE]"
     echo '[-] Example: recon.sh wlan0 my_ssid my_passhphrase'
     exit 0
@@ -25,11 +25,11 @@ if [[ $ret_code != 0 ]]; then
     exit -1
 fi
 
-mkdir ./tmp
-
-if [ $? == 1]
-then
-    sudo rm ./tmp/*
+if [[ -d "./tmp" ]]; then
+	sudo rm ./tmp/*
+else
+	mkdir ./tmp
+fi
 
 sudo cp ./conf/hostapd ./tmp/hostapd
 sudo cp ./conf/dnsmasq.conf ./tmp/dnsmasq.conf
