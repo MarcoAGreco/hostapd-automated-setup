@@ -31,10 +31,10 @@ if [ $? == 1]
 then
     sudo rm ./tmp/*
 
-cp ./conf/hostapd ./tmp/hostapd
-cp ./conf/dnsmasq.conf ./tmp/dnsmasq.conf
-cp ./conf/dhcpcd.conf ./tmp/dhcpcd.conf
-cp ./conf/dhcpd.conf ./tmp/dhcpd.conf
+sudo cp ./conf/hostapd ./tmp/hostapd
+sudo cp ./conf/dnsmasq.conf ./tmp/dnsmasq.conf
+sudo cp ./conf/dhcpcd.conf ./tmp/dhcpcd.conf
+sudo cp ./conf/dhcpd.conf ./tmp/dhcpd.conf
 
 sudo apt-get install -y hostapd
 
