@@ -111,3 +111,4 @@ sudo cp ./conf/hostapd.conf /etc/hostapd/hostapd.conf
 # sudo hostapd /etc/hostapd/hostapd.conf
 
 echo "[DONE] Reboot the system to start the AP."
+echo "[DONE] Run \"sudo sysctl -w net.ipv4.ip_forward=1\" after reboot."
