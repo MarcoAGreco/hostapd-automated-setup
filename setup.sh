@@ -102,19 +102,15 @@ sudo rfkill unblock wlan
 
 # Setup hostapd configuration file
 sudo echo "
-country_code=IT
-ieee80211n=1
-driver=nl80211
 interface=$1
 ssid=$2
+driver=nl80211
 hw_mode=g
-channel=6
-wmm_enabled=1
+channel=1
 macaddr_acl=0
 auth_algs=1
 ignore_broadcast_ssid=0
 wpa=2
-ht_capab=[HT40][SHORT-GI-20][DSSS_CCK-40]
 wpa_passphrase=$3
 wpa_key_mgmt=WPA-PSK
 wpa_pairwise=TKIP
