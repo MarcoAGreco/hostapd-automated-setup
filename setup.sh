@@ -1,13 +1,13 @@
 #!/bin/bash
 
-if [[ $# != 3]]; then
+if [[ $# != 3]] then
     echo "[ERROR] Illegal number of parameters."
     echo "[-] Syntax: recon.sh [interface] [SSID] [PASSPHRASE]"
     echo '[-] Example: recon.sh wlan0 my_ssid my_passhphrase'
     exit -1
 fi
 
-if [[ $1 == '--help' ]]; then
+if [[ $1 == '--help' ]] then
     echo "[-] Syntax: recon.sh [interface] [SSID] [PASSPHRASE]"
     echo '[-] Example: recon.sh wlan0 my_ssid my_passhphrase'
     exit 0
