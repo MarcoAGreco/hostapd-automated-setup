@@ -25,6 +25,17 @@ if [ $ret_code != 0 ]; then
     exit -1
 fi
 
+mkdir ./tmp
+
+if [ $? == 1]
+then
+    sudo rm ./tmp/*
+
+cp ./conf/hostapd ./tmp/hostapd
+cp ./conf/dnsmasq.conf ./tmp/dnsmasq.conf
+cp ./conf/dhcpcd.conf ./tmp/dhcpcd.conf
+cp ./conf/dhcpd.conf ./tmp/dhcpd.conf
+
 sudo apt-get install -y hostapd
 
 if [[ $? > 0 ]]
@@ -62,9 +73,9 @@ fi
 
 echo "interface $1
     static ip_address=192.168.4.1/24
-    nohook wpa_supplicant" >> ./conf/dhcpcd.conf
+    nohook wpa_supplicant" >> ./tmp/dhcpcd.conf
 
-cp ./conf/dhcpcd.conf /etc/dhcpcd.conf
+cp ./tmp/dhcpcd.conf /etc/dhcpcd.conf
 
 
 sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
@@ -83,9 +94,9 @@ dhcp-range=192.168.4.2,192.168.4.20,255.255.255.0,24h
 domain=wlan     # Local wireless DNS domain
 address=/gw.wlan/192.168.4.1
                 # Alias for this router
-" >> conf/dnsmasq.conf
+" >> tmp/dnsmasq.conf
 
-sudo cp conf/dnsmasq.conf /etc/dnsmasq.conf
+sudo cp tmp/dnsmasq.conf /etc/dnsmasq.conf
 
 sudo rfkill unblock wlan
 
@@ -103,12 +114,9 @@ wpa=2
 wpa_passphrase=$3
 wpa_key_mgmt=WPA-PSK
 wpa_pairwise=TKIP
-rsn_pairwise=CCMP" > conf/hostapd.conf
+rsn_pairwise=CCMP" > tmp/hostapd.conf
 
-sudo cp ./conf/hostapd.conf /etc/hostapd/hostapd.conf
-# cp /.conf/hostapd /etc/default/hostapd
-
-# sudo hostapd /etc/hostapd/hostapd.conf
+sudo cp ./tmp/hostapd.conf /etc/hostapd/hostapd.conf
 
 echo "[DONE] Reboot the system to start the AP."
 echo "[DONE] Run \"sudo sysctl -w net.ipv4.ip_forward=1\" after reboot."
